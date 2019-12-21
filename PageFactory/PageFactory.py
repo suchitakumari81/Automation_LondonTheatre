@@ -37,6 +37,9 @@ class BasePageClass(object):
 class BookingHomePage(BasePageClass):
     def __init__(self, url=None):
         self.search_for_tickets = ConfigReader().getValue('search_for_tickets')
+        self.full_name = ConfigReader().getValue('full_name')
+
+
         BasePageClass.isInitialized = False
         BasePageClass.__init__(self, url)
 
