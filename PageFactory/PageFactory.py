@@ -1,9 +1,5 @@
-from logging import exception
 from time import sleep
 
-import document as document
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 
 from common.BaseApplication import BaseApplication, ActionChains, EC
 from common.ConfigReader import ConfigReader
@@ -44,13 +40,14 @@ class BookingHomePage(BasePageClass):
         BasePageClass.isInitialized = False
         BasePageClass.__init__(self, url)
 
-    def search_for_tickets(self):
-        self.base.textfield('search_tickets').type(self.search_for_tickets)
-        self.base.element('go_to_search_resulted_page').getWebElement().click()
 
-    def search_tickets(self):
+    def search_for_story(self):
         self.base.textfield('search_tickets').type(self.search_for_tickets)
+
+        # Validation of searched story found for ticket bookings
         assert self.base.element("go_to_search_resulted_page").getWebElement()
+
+    def navigate_book_now_page(self):
         theatre_element = self.base.element('go_to_search_resulted_page').getWebElement()
         # hover on the element to get the book now button click
         hover = ActionChains(self.getDriver()).move_to_element(theatre_element)
@@ -62,12 +59,18 @@ class BookingHomePage(BasePageClass):
         self.base.button('booking_now_button').click()
         sleep(20)
         self.getDriver().switch_to.window(self.getDriver().window_handles[1])
-
-        self.base.text("Pick_date_header").getWebElement()
+        # Validate user is navigate to new tab to pick up date of booking
+        assert self.base.text("Pick_date_header").getWebElement()
         self.base.button('date_to_pick').click()
+        sleep(10)
 
-        seat_to_book = self.getDriver().find_elements_by_xpath("/*[name()='circle']")
+    def select_seat_to_book(self):
+        # Switch to iframe for seat selection
+        self.getDriver().switch_to.frame(self.getDriver().find_element_by_css_selector('[src="/seatmap/tour-group/7233"]'))
+        seat_to_book = self.getDriver().find_elements_by_xpath("//*[name()='circle' and @class='seat bookable']")
         print("element count" , len(seat_to_book))
+        hover = ActionChains(self.getDriver()).move_to_element(seat_to_book[1])
+        hover.click().perform()
         sleep(20)
 
     def close(self):

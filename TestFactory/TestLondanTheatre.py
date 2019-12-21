@@ -27,7 +27,9 @@ class TestLondanTheatre(unittest.TestCase):
 
     def test_story_booking_Ticket(self):
         # Search for search_for_tickets for the story "The Simon and Garfunkel Story ""
-        self.page.search_tickets()
+        self.page.search_for_story()
+        self.page.navigate_book_now_page()
+        self.page.select_seat_to_book()
 
     pass
 
