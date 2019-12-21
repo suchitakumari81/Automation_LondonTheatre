@@ -68,7 +68,6 @@ class BookingHomePage(BasePageClass):
         # Switch to iframe for seat selection
         self.getDriver().switch_to.frame(self.getDriver().find_element_by_css_selector('[src="/seatmap/tour-group/7233"]'))
         seat_to_book = self.getDriver().find_elements_by_xpath("//*[name()='circle' and @class='seat bookable']")
-        print("element count" , len(seat_to_book) , seat_to_book[1])
         hover = ActionChains(self.getDriver()).move_to_element(seat_to_book[1])
         hover.click().perform()
         sleep(20)
@@ -76,7 +75,7 @@ class BookingHomePage(BasePageClass):
     def navigate_to_next(self):
 
         self.base.button('next_button').click()
-        
+
 
     def close(self):
         self.base.driver.quit()
