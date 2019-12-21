@@ -1,0 +1,37 @@
+[
+        {"button":[
+               
+                {"booking_now_button":"xpath=//*[@class='button']"},
+                {"date_to_pick":"xpath=//*[@class='date-big-wrapper   ']//span[@class='notranslate ']"},
+                 {"Bookable_seat":"xpath=//*[name()='circle' and @class='seat bookable'][1]"}
+
+
+                ]
+        },
+        {"text":[
+                {"Result":"css=h1[class='title spacer-l-30']"},
+                {"Pick_date_header":"xpath=//*[@class='product-booking-header']"}
+                
+            ]
+        },
+        {"textfield":[
+                {"search_tickets":"css=input[type=text]"}
+        ]
+        },
+
+
+        {"link":[
+                {"Bookable_seat":"css=#SE-STALLS-AA-10"}
+
+        ]
+        },
+        
+        {"element":[
+                
+                {"go_to_search_resulted_page":"xpath=//*[@class='fa fa-chevron-right']"},
+                {"Bookable_seat":"xpath=//*[name()='circle'and @id='SE-STALLS-AA-10']"},
+                {"zoom_seat":"xpath=//*[@id='Capa_1'][2]"}
+            ]
+        }
+
+]
