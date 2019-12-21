@@ -7,7 +7,6 @@ from HtmlTestRunner import HTMLTestRunner
 import TestFactory.TestLondanTheatre
 
 folder = './Snapshots/Chrome/ActualScreenshots'
-# folder = 'C:/Users/Administrator/AppData/Local/Temp'
 for the_file in os.listdir(folder):
     file_path = os.path.join(folder, the_file)
     try:
@@ -22,7 +21,6 @@ suite = unittest.TestSuite()
 suite.addTests([
 
     unittest.defaultTestLoader.loadTestsFromModule(TestFactory.TestLondanTheatre, True)
-    # unittest.defaultTestLoader.loadTestsFromModule(TestFactory.TestFrenchLeadFOC, True)
 
 ])
 now = datetime.datetime.now()
