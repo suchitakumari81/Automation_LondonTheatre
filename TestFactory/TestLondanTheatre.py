@@ -30,6 +30,7 @@ class TestLondanTheatre(unittest.TestCase):
         self.page.search_for_story()
         self.page.navigate_book_now_page()
         self.page.select_seat_to_book()
+        self.page.navigate_to_next()
 
     pass
 
