@@ -11,8 +11,8 @@
                 ]
         },
         {"text":[
-                {"Result":"css=h1[class='title spacer-l-30']"},
-                {"Pick_date_header":"xpath=//*[@class='product-booking-header']"}
+                {"result":"css=h1[class='title spacer-l-30']"},
+                {"pick_date_header":"xpath=//*[@class='product-booking-header']"}
                 
             ]
         },

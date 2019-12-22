@@ -25,12 +25,14 @@ class TestLondanTheatre(unittest.TestCase):
         self.page.close()
         print("Booking of Tickets The Simon and Garfunkel Story Test Ended")
 
-    def test_story_booking_Ticket(self):
+    def test_booking_Ticket(self):
         # Search for search_for_tickets for the story "The Simon and Garfunkel Story ""
         self.page.search_for_story()
         self.page.navigate_book_now_page()
         self.page.select_seat_to_book()
         self.page.navigate_to_next()
+        self .page.fill_on_card_details()
+        self.page.confirm_payment()
 
     pass
 
